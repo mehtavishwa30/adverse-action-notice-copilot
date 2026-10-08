@@ -9,3 +9,5 @@ dist/
 # Presenter materials — kept locally, not published.
 CHECKLIST.md
 WALKTHROUGH.md
+compliance-jenga.html
+.frontend-slides/
