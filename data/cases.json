@@ -1,0 +1,77 @@
+[
+  {
+    "applicationId": "APP-1042",
+    "applicantName": "Dana Okafor",
+    "productName": "Northwind Flex Personal Loan",
+    "decisionDate": "2026-10-02",
+    "reasonCodes": [
+      {
+        "code": "DTI_HIGH",
+        "disclosureText": "Your total monthly debt payments are high relative to your monthly income."
+      },
+      {
+        "code": "CREDIT_HISTORY_SHORT",
+        "disclosureText": "The length of your credit history is shorter than we require for this product."
+      }
+    ],
+    "creditScore": {
+      "score": 648,
+      "range": [300, 850],
+      "source": "TransUnion",
+      "obtainedOn": "2026-09-29"
+    },
+    "internal": {
+      "modelVersion": "risk-scorecard-7.3",
+      "riskScore": 0.71,
+      "decisionThreshold": 0.55
+    }
+  },
+  {
+    "applicationId": "APP-2217",
+    "applicantName": "Marcus Whitfield",
+    "productName": "Northwind Secured Credit Line",
+    "decisionDate": "2026-10-03",
+    "reasonCodes": [
+      {
+        "code": "DELINQ_RECENT",
+        "disclosureText": "Your credit report shows one or more recent past-due payments."
+      }
+    ],
+    "internal": {
+      "modelVersion": "risk-scorecard-7.3",
+      "riskScore": 0.64,
+      "decisionThreshold": 0.55
+    }
+  },
+  {
+    "applicationId": "APP-3390",
+    "applicantName": "Priya Raman",
+    "productName": "Northwind Flex Personal Loan",
+    "decisionDate": "2026-10-04",
+    "reasonCodes": [
+      {
+        "code": "INCOME_UNVERIFIED",
+        "disclosureText": "We were unable to verify the income you reported on your application."
+      },
+      {
+        "code": "COLLATERAL_INSUFFICIENT",
+        "disclosureText": "The value of the collateral you offered is not sufficient for the amount requested."
+      },
+      {
+        "code": "UTILIZATION_HIGH",
+        "disclosureText": "The balances on your revolving accounts are high relative to your credit limits."
+      }
+    ],
+    "creditScore": {
+      "score": 701,
+      "range": [300, 850],
+      "source": "Experian",
+      "obtainedOn": "2026-10-01"
+    },
+    "internal": {
+      "modelVersion": "risk-scorecard-7.3",
+      "riskScore": 0.58,
+      "decisionThreshold": 0.55
+    }
+  }
+]

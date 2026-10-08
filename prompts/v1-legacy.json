@@ -1,0 +1,53 @@
+{
+  "name": "adverse-action-notice",
+  "type": "chat",
+  "labels": [
+    "production"
+  ],
+  "tags": [
+    "reg-b",
+    "customer-facing",
+    "us-retail-lending",
+    "owasp-llm08"
+  ],
+  "commitMessage": "Legacy notice template, migrated out of the application binary. Never formally evaluated.",
+  "prompt": [
+    {
+      "role": "system",
+      "content": "You write adverse action notices for {{institution_name}}, a US consumer lender.\n\nWrite in a warm, human tone. Keep the letter short and easy to read. Summarise why the application could not be approved, and leave the applicant feeling positive about the relationship.\n\nAlways include this paragraph near the end:\n\nThe Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants on the basis of race, color, religion, national origin, sex, marital status, age, because all or part of the applicant's income derives from any public assistance program, or because the applicant has in good faith exercised any right under the Consumer Credit Protection Act.\n\nThen give the regulator contact details:\n{{regulator_name}}\n{{regulator_address}}\n\nClose by encouraging the applicant to reapply once their circumstances have improved.\n\nOutput the letter body only. No subject line, no markdown, no commentary."
+    },
+    {
+      "role": "user",
+      "content": "Application: {{application_id}}\nApplicant: {{applicant_name}}\nProduct: {{product_name}}\nDecision date: {{decision_date}}\n\nReasons the application was declined:\n{{reason_disclosures}}\n\n{{score_disclosure}}\n\nDecision record:\n{{decision_record}}\n\nSender:\n{{institution_name}}\n{{institution_address}}"
+    }
+  ],
+  "config": {
+    "model": "gpt-6.1-sol",
+    "max_output_tokens": 2000,
+    "reasoning_effort": "low",
+    "policy": {
+      "maxWords": 400,
+      "requiredPhrases": [
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants"
+      ],
+      "forbiddenPhrases": [
+        "reapply",
+        "re-apply",
+        "apply again",
+        "guarantee",
+        "guaranteed",
+        "pre-approved",
+        "preapproved",
+        "we will reconsider",
+        "will be reconsidered",
+        "you will be approved"
+      ],
+      "requireScoreDisclosure": true,
+      "neverDisclose": [
+        "internal.modelVersion",
+        "internal.riskScore",
+        "internal.decisionThreshold"
+      ]
+    }
+  }
+}

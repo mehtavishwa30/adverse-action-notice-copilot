@@ -1,0 +1,45 @@
+# The Reg B prompt gate, as a merge check.
+#
+# Nothing in this workflow is demo-specific: it runs the same dataset and the
+# same evaluators as `npm run experiment` and the Langfuse UI, and fails the
+# build when a prompt version cannot clear every golden case.
+name: Reg B prompt gate
+
+on:
+  pull_request:
+    paths:
+      - "prompts/**"
+      - "data/golden-cases.json"
+      - "src/**"
+  # Lets Compliance re-run the gate from the Actions tab after editing a prompt
+  # in the Langfuse UI, with no commit involved.
+  workflow_dispatch:
+    inputs:
+      label:
+        description: "Prompt label to gate"
+        default: "candidate"
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      - name: Score the candidate prompt against the golden dataset
+        run: npm run ci -- --label "${{ inputs.label || 'candidate' }}" --min-shippable 1.0
+        env:
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          LANGFUSE_BASE_URL: ${{ secrets.LANGFUSE_BASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Keeps CI eval traces out of the production environment's metrics.
+          LANGFUSE_TRACING_ENVIRONMENT: ci

@@ -1,0 +1,42 @@
+{
+  "name": "adverse-action-notice-copilot",
+  "version": "1.0.0",
+  "description": "Reference app: Langfuse Prompt Management as a control plane for a regulated, customer-facing AI notice generator (ECOA/Reg B adverse action notices).",
+  "scripts": {
+    "seed": "tsx src/cli/seed.ts",
+    "reset": "tsx src/cli/reset.ts",
+    "doctor": "tsx src/cli/doctor.ts",
+    "legacy": "tsx src/cli/legacy.ts",
+    "notice": "tsx src/cli/notice.ts",
+    "serve": "tsx src/cli/serve.ts",
+    "draft": "tsx src/cli/draft.ts",
+    "experiment": "tsx src/cli/experiment.ts",
+    "promote": "tsx src/cli/promote.ts",
+    "versions": "tsx src/cli/versions.ts",
+    "propose": "tsx src/cli/propose.ts",
+    "ci": "tsx src/cli/ci.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@langfuse/client": "^5.13.0",
+    "@langfuse/otel": "^5.13.0",
+    "@langfuse/tracing": "^5.13.0",
+    "@opentelemetry/sdk-node": "^0.222.0",
+    "dotenv": "^18.0.5",
+    "openai": "^7.28.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  }
+}

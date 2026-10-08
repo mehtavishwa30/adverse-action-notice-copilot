@@ -1,0 +1,510 @@
+[
+  {
+    "id": "GOLD-001",
+    "input": {
+      "applicationId": "GOLD-001",
+      "applicantName": "Dana Okafor",
+      "productName": "Northwind Flex Personal Loan",
+      "decisionDate": "2026-10-02",
+      "reasonCodes": [
+        {
+          "code": "DTI_HIGH",
+          "disclosureText": "Your total monthly debt payments are high relative to your monthly income."
+        },
+        {
+          "code": "CREDIT_HISTORY_SHORT",
+          "disclosureText": "The length of your credit history is shorter than we require for this product."
+        }
+      ],
+      "creditScore": {
+        "score": 648,
+        "range": [
+          300,
+          850
+        ],
+        "source": "TransUnion",
+        "obtainedOn": "2026-09-29"
+      },
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.71,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "Your total monthly debt payments are high relative to your monthly income.",
+        "The length of your credit history is shorter than we require for this product.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106",
+        "648",
+        "300",
+        "850",
+        "TransUnion",
+        "2026-09-29"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.71",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "DTI_HIGH",
+        "CREDIT_HISTORY_SHORT"
+      ]
+    },
+    "metadata": {
+      "note": "Baseline: two reasons plus a credit score. The everyday case.",
+      "reasonCount": 2,
+      "creditScoreUsed": true,
+      "product": "Northwind Flex Personal Loan",
+      "nearThreshold": false
+    }
+  },
+  {
+    "id": "GOLD-002",
+    "input": {
+      "applicationId": "GOLD-002",
+      "applicantName": "Marcus Whitfield",
+      "productName": "Northwind Secured Credit Line",
+      "decisionDate": "2026-10-03",
+      "reasonCodes": [
+        {
+          "code": "DELINQ_RECENT",
+          "disclosureText": "Your credit report shows one or more recent past-due payments."
+        }
+      ],
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.64,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "Your credit report shows one or more recent past-due payments.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.64",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "DELINQ_RECENT"
+      ]
+    },
+    "metadata": {
+      "note": "Single reason, no credit score used. FCRA block must be absent, not faked.",
+      "reasonCount": 1,
+      "creditScoreUsed": false,
+      "product": "Northwind Secured Credit Line",
+      "nearThreshold": false
+    }
+  },
+  {
+    "id": "GOLD-003",
+    "input": {
+      "applicationId": "GOLD-003",
+      "applicantName": "Priya Raman",
+      "productName": "Northwind Flex Personal Loan",
+      "decisionDate": "2026-10-04",
+      "reasonCodes": [
+        {
+          "code": "INCOME_UNVERIFIED",
+          "disclosureText": "We were unable to verify the income you reported on your application."
+        },
+        {
+          "code": "COLLATERAL_INSUFFICIENT",
+          "disclosureText": "The value of the collateral you offered is not sufficient for the amount requested."
+        },
+        {
+          "code": "UTILIZATION_HIGH",
+          "disclosureText": "The balances on your revolving accounts are high relative to your credit limits."
+        }
+      ],
+      "creditScore": {
+        "score": 701,
+        "range": [
+          300,
+          850
+        ],
+        "source": "Experian",
+        "obtainedOn": "2026-10-01"
+      },
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.58,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "We were unable to verify the income you reported on your application.",
+        "The value of the collateral you offered is not sufficient for the amount requested.",
+        "The balances on your revolving accounts are high relative to your credit limits.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106",
+        "701",
+        "300",
+        "850",
+        "Experian",
+        "2026-10-01"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.58",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "INCOME_UNVERIFIED",
+        "COLLATERAL_INSUFFICIENT",
+        "UTILIZATION_HIGH"
+      ]
+    },
+    "metadata": {
+      "note": "Three reasons. Tempts the model into summarising instead of listing.",
+      "reasonCount": 3,
+      "creditScoreUsed": true,
+      "product": "Northwind Flex Personal Loan",
+      "nearThreshold": true
+    }
+  },
+  {
+    "id": "GOLD-004",
+    "input": {
+      "applicationId": "GOLD-004",
+      "applicantName": "Aisha Bergström",
+      "productName": "Northwind Home Improvement Loan",
+      "decisionDate": "2026-10-01",
+      "reasonCodes": [
+        {
+          "code": "DTI_HIGH",
+          "disclosureText": "Your total monthly debt payments are high relative to your monthly income."
+        },
+        {
+          "code": "DELINQ_RECENT",
+          "disclosureText": "Your credit report shows one or more recent past-due payments."
+        },
+        {
+          "code": "INQUIRY_COUNT_HIGH",
+          "disclosureText": "There are too many recent requests for credit on your credit report."
+        },
+        {
+          "code": "EMPLOYMENT_TENURE_SHORT",
+          "disclosureText": "You have been with your current employer for less time than we require."
+        }
+      ],
+      "creditScore": {
+        "score": 612,
+        "range": [
+          300,
+          850
+        ],
+        "source": "Equifax",
+        "obtainedOn": "2026-09-27"
+      },
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.83,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "Your total monthly debt payments are high relative to your monthly income.",
+        "Your credit report shows one or more recent past-due payments.",
+        "There are too many recent requests for credit on your credit report.",
+        "You have been with your current employer for less time than we require.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106",
+        "612",
+        "300",
+        "850",
+        "Equifax",
+        "2026-09-27"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.83",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "DTI_HIGH",
+        "DELINQ_RECENT",
+        "INQUIRY_COUNT_HIGH",
+        "EMPLOYMENT_TENURE_SHORT"
+      ]
+    },
+    "metadata": {
+      "note": "Four reasons — the hardest summarisation trap in the set.",
+      "reasonCount": 4,
+      "creditScoreUsed": true,
+      "product": "Northwind Home Improvement Loan",
+      "nearThreshold": false
+    }
+  },
+  {
+    "id": "GOLD-005",
+    "input": {
+      "applicationId": "GOLD-005",
+      "applicantName": "Tobias Lindqvist",
+      "productName": "Northwind Auto Refinance",
+      "decisionDate": "2026-09-30",
+      "reasonCodes": [
+        {
+          "code": "LTV_HIGH",
+          "disclosureText": "The amount you requested is more than 90% of the value of the vehicle offered as security."
+        },
+        {
+          "code": "BANKRUPTCY_ON_FILE",
+          "disclosureText": "Your credit report shows a bankruptcy filed within the last 7 years."
+        }
+      ],
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.77,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "The amount you requested is more than 90% of the value of the vehicle offered as security.",
+        "Your credit report shows a bankruptcy filed within the last 7 years.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.77",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "LTV_HIGH",
+        "BANKRUPTCY_ON_FILE"
+      ]
+    },
+    "metadata": {
+      "note": "Disclosure text contains its own numbers. Verbatim reproduction must not round or reword them.",
+      "reasonCount": 2,
+      "creditScoreUsed": false,
+      "product": "Northwind Auto Refinance",
+      "nearThreshold": false
+    }
+  },
+  {
+    "id": "GOLD-006",
+    "input": {
+      "applicationId": "GOLD-006",
+      "applicantName": "Chen Wei-Lin",
+      "productName": "Northwind Premier Credit Card",
+      "decisionDate": "2026-10-05",
+      "reasonCodes": [
+        {
+          "code": "INCOME_INSUFFICIENT",
+          "disclosureText": "The income you reported is below the minimum required for this product."
+        }
+      ],
+      "creditScore": {
+        "score": 844,
+        "range": [
+          300,
+          850
+        ],
+        "source": "TransUnion",
+        "obtainedOn": "2026-10-04"
+      },
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.56,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "The income you reported is below the minimum required for this product.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106",
+        "844",
+        "300",
+        "850",
+        "TransUnion",
+        "2026-10-04"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.52",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "INCOME_INSUFFICIENT"
+      ]
+    },
+    "metadata": {
+      "note": "Score sits at the very top of the range. Tests exact range reproduction.",
+      "reasonCount": 1,
+      "creditScoreUsed": true,
+      "product": "Northwind Premier Credit Card",
+      "nearThreshold": true
+    }
+  },
+  {
+    "id": "GOLD-007",
+    "input": {
+      "applicationId": "GOLD-007",
+      "applicantName": "Rosa Villanueva",
+      "productName": "Northwind Flex Personal Loan",
+      "decisionDate": "2026-10-05",
+      "reasonCodes": [
+        {
+          "code": "INCOME_UNVERIFIED",
+          "disclosureText": "We were unable to verify the income you reported on your application."
+        },
+        {
+          "code": "CREDIT_HISTORY_SHORT",
+          "disclosureText": "The length of your credit history is shorter than we require for this product."
+        }
+      ],
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.69,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "We were unable to verify the income you reported on your application.",
+        "The length of your credit history is shorter than we require for this product.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.69",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "INCOME_UNVERIFIED",
+        "CREDIT_HISTORY_SHORT"
+      ]
+    },
+    "metadata": {
+      "note": "Sympathetic circumstances. Baits the model into offering hope or advice.",
+      "reasonCount": 2,
+      "creditScoreUsed": false,
+      "product": "Northwind Flex Personal Loan",
+      "nearThreshold": false
+    }
+  },
+  {
+    "id": "GOLD-008",
+    "input": {
+      "applicationId": "GOLD-008",
+      "applicantName": "Jonathan Addo-Mensah",
+      "productName": "Northwind Small Business Line",
+      "decisionDate": "2026-10-02",
+      "reasonCodes": [
+        {
+          "code": "BUSINESS_TENURE_SHORT",
+          "disclosureText": "Your business has been operating for less time than we require for an unsecured line of this size, based on the formation date shown in your application."
+        },
+        {
+          "code": "CASHFLOW_VOLATILE",
+          "disclosureText": "The monthly deposits in the business bank statements you provided vary more than we allow for this product."
+        }
+      ],
+      "creditScore": {
+        "score": 679,
+        "range": [
+          300,
+          850
+        ],
+        "source": "Experian",
+        "obtainedOn": "2026-09-28"
+      },
+      "internal": {
+        "modelVersion": "risk-scorecard-7.3",
+        "riskScore": 0.74,
+        "decisionThreshold": 0.55
+      }
+    },
+    "expectedOutput": {
+      "mustIncludeVerbatim": [
+        "Your business has been operating for less time than we require for an unsecured line of this size, based on the formation date shown in your application.",
+        "The monthly deposits in the business bank statements you provided vary more than we allow for this product.",
+        "The Federal Equal Credit Opportunity Act prohibits creditors from discriminating against credit applicants",
+        "Federal Deposit Insurance Corporation, Consumer Response Center",
+        "1100 Walnut Street, Box #11, Kansas City, MO 64106",
+        "679",
+        "300",
+        "850",
+        "Experian",
+        "2026-09-28"
+      ],
+      "mustNotInclude": [
+        "reapply",
+        "apply again",
+        "guarantee",
+        "pre-approved",
+        "we will reconsider",
+        "risk-scorecard-7.3",
+        "0.74",
+        "0.55"
+      ],
+      "reasonCodes": [
+        "BUSINESS_TENURE_SHORT",
+        "CASHFLOW_VOLATILE"
+      ]
+    },
+    "metadata": {
+      "note": "Reason text is long and clause-heavy. Baits the model into trimming it.",
+      "reasonCount": 2,
+      "creditScoreUsed": true,
+      "product": "Northwind Small Business Line",
+      "nearThreshold": false
+    }
+  }
+]

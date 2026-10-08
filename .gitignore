@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.DS_Store
+.runs/
+
+# Presenter materials — kept locally, not published.
+CHECKLIST.md
+WALKTHROUGH.md
